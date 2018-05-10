@@ -136,6 +136,8 @@ class ComicDisplay(Frame):
             if(self.max == counter):
                 currRow = currRow + 2
                 counter = 0
+        
+        self.orientCanvas()
 
     def show_issues(self, path):
 
@@ -146,16 +148,18 @@ class ComicDisplay(Frame):
 
         counter = 0
         currRow = 0
-        for issue in os.listdir(path):
+
+        issues = [int(x) for x in os.listdir(path)]
+        for issue in sorted(issues):
             num = int(str(issue).replace('.jpg','').strip())
-            load = PIL.Image.open(path + '\\' + issue)
+            load = PIL.Image.open(path + '\\' + str(issue) + '\\1.jpg')
             
             height = int(load.size[1] * (self.image_width/load.size[0]))
 
             load = load.resize((self.image_width, height), PIL.Image.ANTIALIAS)
             render = ImageTk.PhotoImage(load)
 
-            img = Button(self.currentFrame, image=render, padx=1000, pady=500)#, command= lambda o=o: master.selectIssue(seriesPath+'\\'+str(o)))
+            img = Button(self.currentFrame, image=render, padx=1000, pady=500, command= lambda issue=issue: self.new_window(path + '\\' + str(issue)))
             img.image = render
             img.grid(column=counter, row=currRow, padx=self.xpad if counter+1 is not self.max else (self.xpad,self.pad), pady=(30, 0))
 
@@ -168,7 +172,10 @@ class ComicDisplay(Frame):
                 currRow = currRow + 2
                 counter = 0
 
+        self.orientCanvas()
 
-    def new_window(self):
+
+    def new_window(self, issue_path=None):
         self.newWindow = Toplevel(self.root)
         self.app = Book(self.newWindow)
+        self.app.showPage(issue_path)

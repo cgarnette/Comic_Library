@@ -124,7 +124,7 @@ class Window(Frame):
 
         path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..//bin')) + '//data.csv'
         if os.path.isfile(path):
-            self.df = pd.DataFrame.from_csv(path)
+            self.df = pd.read_csv(path)
             #print(self.df)
         else:
             columns = ['ID', 'Title', 'Publisher', 'Era', 'Favorite', 'Path']
