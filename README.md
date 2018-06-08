@@ -24,3 +24,6 @@ This program supports the addition of issues to the library either through the i
 This library also has a Story Arc function which allows the user to see all the story arcs to date for their favorite publisher. The Story arcs are separated by publishing era. Upon selecting a story arc the user will be shown all issues, in order, for this chosen story arc. From this page the user will also have the option to begin reading issues pertaining to the specific arc (to be implemented).
 
 ![alt text](img/select_arc.JPG)
+
+
+*I do not own the images used in the screenshots displayed in this readme. They are simply to show a proof of concept.
