@@ -26,4 +26,4 @@ This library also has a Story Arc function which allows the user to see all the 
 ![alt text](img/select_arc.JPG)
 
 
-*I do not own the images used in the screenshots displayed in this readme. They are simply to show a proof of concept.
+*I do not own the comic book images used in the screenshots displayed in this readme. They are simply to show a proof of concept.
